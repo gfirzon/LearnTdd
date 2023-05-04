@@ -7,7 +7,7 @@ using DecisioningEngine.Services;
 // create the credit application
 //---------------------------------------------------
 string ssn = "111-11-1111";
-decimal amountRequested = 300000.00M;
+decimal amountRequested = 30000.00M;
 decimal salary = 75000;
 
 CreditApplication creditApplication = new CreditApplication

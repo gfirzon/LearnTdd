@@ -2,13 +2,15 @@
 
 ### Defininitions of TDD
 Container: C# class that is tasked to do the work
-Component: Object inside the Container that Container is relying upon to do some or all of work
+Component: Object inside the Container that Container 
+	is relying upon to do some or all of work
 Test class: Unit test class responsible for unit testing the Container class
 Test method: Unit test class method responsible for testing a method of the Containter class
 
 ### TDD Coding Rules
-1. Cantainer should not instatiate its components
-2. Components should be injected into Container via constructor
+1. Container should not instantiate its components
+2. Components should be injected into Container 
+	via constructor
 3. Component should be injected using Interface rather than Concrete class type
 
 ### Unit Test Rules
