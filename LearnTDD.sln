@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotFancyCreditApplication", "NotFancyCreditApplication\NotFancyCreditApplication.csproj", "{4691429C-50D7-4D9C-A0AC-E0BB9D630893}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0AFD6883-8655-40E5-A12B-816905DADCD7}"
+	ProjectSection(SolutionItems) = preProject
+		docs\rules.MD = docs\rules.MD
+		docs\tddGuideLines.MD = docs\tddGuideLines.MD
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecisioningEngineLib", "DecisioningEngineLibrary\DecisioningEngineLib.csproj", "{A9448173-5E97-41A3-9DFF-A59107BB0306}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3985430-0D08-4055-A690-5BA70FC568D3}
+	EndGlobalSection
+EndGlobal
