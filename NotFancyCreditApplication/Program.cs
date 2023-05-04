@@ -3,6 +3,9 @@
 using DecisioningEngine.Models;
 using DecisioningEngine.Services;
 
+//---------------------------------------------------
+// create the credit application
+//---------------------------------------------------
 string ssn = "111-11-1111";
 decimal amountRequested = 300000.00M;
 decimal salary = 75000;
@@ -14,9 +17,15 @@ CreditApplication creditApplication = new CreditApplication
     CurrentSalary = salary
 };
 
+//---------------------------------------------------
+// get the application decision
+//---------------------------------------------------
 RealEstateLoanEngine loanEngine = new RealEstateLoanEngine();
 LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
 
+//---------------------------------------------------
+// display results
+//---------------------------------------------------
 Console.WriteLine(new string('▓', 50));
 Console.WriteLine($"Credit decision for applicant {decision.SSN}");
 
