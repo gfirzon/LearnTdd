@@ -20,7 +20,12 @@ CreditApplication creditApplication = new CreditApplication
 //---------------------------------------------------
 // get the application decision
 //---------------------------------------------------
-RealEstateLoanEngine loanEngine = new RealEstateLoanEngine();
+CreditService creditService = new CreditService();
+CreditRulesService creditRulesService = new CreditRulesService();
+LoanDecisionEngine loanDecisionEngine = new LoanDecisionEngine();
+
+RealEstateLoanEngine loanEngine 
+        = new RealEstateLoanEngine(creditService, creditRulesService, loanDecisionEngine);
 LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
 
 //---------------------------------------------------

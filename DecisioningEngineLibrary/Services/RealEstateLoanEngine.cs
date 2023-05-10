@@ -5,6 +5,19 @@ namespace DecisioningEngine.Services
 {
     public class RealEstateLoanEngine
     {
+        private readonly CreditService _creditService = null;
+        private readonly CreditRulesService _creditRulesService = null;
+        private readonly LoanDecisionEngine _loanDecisionEngine = null;
+      
+        public RealEstateLoanEngine(CreditService creditService,
+                    CreditRulesService creditRulesService,
+                    LoanDecisionEngine loanDecisionEngine)
+        {
+            _creditService = creditService;
+            _creditRulesService = creditRulesService;
+            _loanDecisionEngine = loanDecisionEngine;
+        }      
+
         /// <summary>
         /// Get Loan decision based on credit application and credit bureau information
         /// </summary>
@@ -12,14 +25,11 @@ namespace DecisioningEngine.Services
         /// <returns></returns>
         public LoanDecision GetLoanDecision(CreditApplication creditApplication)
         {
-            CreditService creditService = new CreditService();
-            CreditScoreResult creditScoreResult = creditService.GetCreditScore(creditApplication.SSN);
+            CreditScoreResult creditScoreResult = _creditService.GetCreditScore(creditApplication.SSN);
 
-            CreditRulesService creditRulesService = new CreditRulesService();
-            decimal maxQualifiedAmount = creditRulesService.GetMaxQualifiedAmount(creditScoreResult.CreditScore, creditApplication.CurrentSalary);
+            decimal maxQualifiedAmount = _creditRulesService.GetMaxQualifiedAmount(creditScoreResult.CreditScore, creditApplication.CurrentSalary);
 
-            LoanDecisionEngine loanDecisionEngine = new LoanDecisionEngine();
-            LoanDecision loanDecision = loanDecisionEngine.GetLoanDecision(creditApplication.SSN, creditApplication.AmountRequested, maxQualifiedAmount);
+            LoanDecision loanDecision = _loanDecisionEngine.GetLoanDecision(creditApplication.SSN, creditApplication.AmountRequested, maxQualifiedAmount);
 
             loanDecision.BureauAvailable = creditScoreResult.BureauAvailable;
 

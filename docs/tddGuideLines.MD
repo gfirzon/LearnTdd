@@ -11,7 +11,8 @@ Test method: Unit test class method responsible for testing a method of the Cont
 1. Container should not instantiate its components
 2. Components should be injected into Container 
 	via constructor
-3. Component should be injected using Interface rather than Concrete class type
+3. Component should be injected 
+	using Interface rather than Concrete class type
 
 ### Unit Test Rules
 1. One test class per Container class
