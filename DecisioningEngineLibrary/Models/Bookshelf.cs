@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace DecisioningEngineLib.Models
 {
-    public class Person : IAnimal
+    public class Bookshelf : IAnimal
     {
-        public string BirthYear { get; set; }
-
-        public void GiveGift()
-        {
-
-        }
-
         public void Eat()
         {
-            Console.WriteLine("I use utensils to eat");
+            Console.WriteLine("I am aa bookshelf and I eat virtually...");
         }
     }
 }

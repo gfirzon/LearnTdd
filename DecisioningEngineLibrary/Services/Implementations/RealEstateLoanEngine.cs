@@ -1,22 +1,22 @@
 ﻿using DecisioningEngine.Models;
 using DecisioningEngineLib.Models;
 
-namespace DecisioningEngine.Services
+namespace DecisioningEngineLib.Services
 {
-    public class RealEstateLoanEngine
+    public class RealEstateLoanEngine : IRealEstateLoanEngine
     {
-        private readonly CreditService _creditService = null;
-        private readonly CreditRulesService _creditRulesService = null;
-        private readonly LoanDecisionEngine _loanDecisionEngine = null;
-      
-        public RealEstateLoanEngine(CreditService creditService,
-                    CreditRulesService creditRulesService,
-                    LoanDecisionEngine loanDecisionEngine)
+        private readonly ICreditService _creditService = null;
+        private readonly ICreditRulesService _creditRulesService = null;
+        private readonly ILoanDecisionEngine _loanDecisionEngine = null;
+
+        public RealEstateLoanEngine(ICreditService creditService,
+                    ICreditRulesService creditRulesService,
+                    ILoanDecisionEngine loanDecisionEngine)
         {
             _creditService = creditService;
             _creditRulesService = creditRulesService;
             _loanDecisionEngine = loanDecisionEngine;
-        }      
+        }
 
         /// <summary>
         /// Get Loan decision based on credit application and credit bureau information

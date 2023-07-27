@@ -1,8 +1,8 @@
 ﻿using DecisioningEngine.Models;
 
-namespace DecisioningEngine.Services
+namespace DecisioningEngineLib.Services
 {
-    public class LoanDecisionEngine
+    public class LoanDecisionEngine : ILoanDecisionEngine
     {
         /// <summary>
         /// Generate application decision

@@ -1,9 +1,9 @@
 ﻿using DecisioningEngine.Models;
 using System.Text.Json;
 
-namespace DecisioningEngine.Services
+namespace DecisioningEngineLib.Services
 {
-    public class CreditPullingService
+    public class CreditPullingService : ICreditPullingService
     {
         private readonly string dataDir = null;
 

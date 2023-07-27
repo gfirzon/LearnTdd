@@ -1,6 +1,8 @@
-﻿namespace DecisioningEngine.Services
+﻿using DecisioningEngineLib.Services;
+
+namespace DecisioningEngineLib.Services
 {
-    public class CreditRulesService
+    public class CreditRulesService : ICreditRulesService
     {
         /// <summary>
         /// Get Maximum qualified amount based on credit score and applicant's salary

@@ -1,7 +1,34 @@
 ﻿// https://github.com/gfirzon/LearnTDD.git
 
 using DecisioningEngine.Models;
-using DecisioningEngine.Services;
+using DecisioningEngineLib.Models;
+using DecisioningEngineLib.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+//IAnimal animal = new Person();
+//IAnimal animal = new Bookshelf();
+//animal.Eat();
+
+//foo(new Person());
+//foo(new Bookshelf());
+
+//return;
+
+static ServiceProvider CreateServices()
+{
+    var services = new ServiceCollection();
+
+    // configuration
+    services.AddTransient<ICreditPullingService, CreditPullingService>();
+    services.AddTransient<ICreditService, CreditService>();
+    services.AddTransient<ICreditRulesService, CreditRulesService>();
+    services.AddTransient<ILoanDecisionEngine, LoanDecisionEngine>();
+    services.AddTransient<IRealEstateLoanEngine, RealEstateLoanEngine>();
+
+    var serviceProvider = services.BuildServiceProvider();
+
+    return serviceProvider;
+}
 
 //---------------------------------------------------
 // create the credit application
@@ -20,17 +47,32 @@ CreditApplication creditApplication = new CreditApplication
 //---------------------------------------------------
 // get the application decision
 //---------------------------------------------------
-CreditService creditService = new CreditService();
+
+ServiceProvider serviceProvider = CreateServices();
+
+IRealEstateLoanEngine loanEngine = serviceProvider.GetService<IRealEstateLoanEngine>();
+LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
+
+int n = 0;
+
+// needed to instantiate CreditService
+/*
+CreditPullingService creditPullingService = new CreditPullingService();
+
+// needed to instantiate RealEstateLoanEngine
+CreditService creditService = new CreditService(creditPullingService);
 CreditRulesService creditRulesService = new CreditRulesService();
 LoanDecisionEngine loanDecisionEngine = new LoanDecisionEngine();
 
-RealEstateLoanEngine loanEngine 
+RealEstateLoanEngine loanEngine
         = new RealEstateLoanEngine(creditService, creditRulesService, loanDecisionEngine);
 LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
+*/
 
 //---------------------------------------------------
 // display results
 //---------------------------------------------------
+
 Console.WriteLine(new string('▓', 50));
 Console.WriteLine($"Credit decision for applicant {decision.SSN}");
 
@@ -47,3 +89,10 @@ Console.ForegroundColor = decision.BureauAvailable ? ConsoleColor.Green : Consol
 Console.WriteLine($"{(decision.BureauAvailable ? "Bureau pull returned data" : "Bureau pull did not return data")}");
 Console.ForegroundColor = ConsoleColor.Gray;
 Console.WriteLine(new string('▓', 50));
+
+
+
+static void foo(IAnimal a)
+{
+    a.Eat();
+}
