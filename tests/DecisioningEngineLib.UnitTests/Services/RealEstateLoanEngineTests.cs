@@ -1,6 +1,5 @@
 ﻿using DecisioningEngine.Models;
 using DecisioningEngineLib.Models;
-using FluentAssertions;
 
 namespace DecisioningEngineLib.UnitTests.Services;
 

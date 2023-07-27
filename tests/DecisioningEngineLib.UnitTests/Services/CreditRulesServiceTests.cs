@@ -12,7 +12,7 @@ public class CreditRulesServiceTests
     [Theory]
     [InlineData(700, 35000, 35000)]
     [InlineData(620, 35000, 17500)]
-    [InlineData(null, 35000, 7000)]
+    [InlineData(null, 35000, 10500)]
     public void GetLoanDecision_Should_Return_Valid_Decision(int? score, decimal salary, decimal expectedQualifiedAmount)
     {
         // Arrange

@@ -14,7 +14,7 @@
 
             if (score.HasValue == false)
             {
-                maxAmount = salary / 5;
+                maxAmount = salary / 100 * 30;
             }
             else
             {

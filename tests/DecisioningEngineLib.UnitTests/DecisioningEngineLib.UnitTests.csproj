@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DecisioningEngineLibrary\DecisioningEngineLib.csproj" />
+    <ProjectReference Include="..\..\src\DecisioningEngine.Api\DecisioningEngine.Api.csproj" />
   </ItemGroup>
 
 </Project>
