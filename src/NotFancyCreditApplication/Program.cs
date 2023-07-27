@@ -1,7 +1,24 @@
 ﻿// https://github.com/gfirzon/LearnTDD.git
 
 using DecisioningEngine.Models;
-using DecisioningEngine.Services;
+using DecisioningEngineLib.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+static ServiceProvider CreateServices()
+{
+    var services = new ServiceCollection();
+
+    // configuration
+    services.AddTransient<ICreditPullingService, CreditPullingService>();
+    services.AddTransient<ICreditService, CreditService>();
+    services.AddTransient<ICreditRulesService, CreditRulesService>();
+    services.AddTransient<ILoanDecisionEngine, LoanDecisionEngine>();
+    services.AddTransient<IRealEstateLoanEngine, RealEstateLoanEngine>();
+
+    var serviceProvider = services.BuildServiceProvider();
+
+    return serviceProvider;
+}
 
 //---------------------------------------------------
 // create the credit application
@@ -20,12 +37,16 @@ CreditApplication creditApplication = new CreditApplication
 //---------------------------------------------------
 // get the application decision
 //---------------------------------------------------
-RealEstateLoanEngine loanEngine = new RealEstateLoanEngine();
+
+ServiceProvider serviceProvider = CreateServices();
+
+IRealEstateLoanEngine? loanEngine = serviceProvider.GetService<IRealEstateLoanEngine>();
 LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
 
 //---------------------------------------------------
 // display results
 //---------------------------------------------------
+
 Console.WriteLine(new string('▓', 50));
 Console.WriteLine($"Credit decision for applicant {decision.SSN}");
 

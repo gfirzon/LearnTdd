@@ -1,6 +1,6 @@
-﻿namespace DecisioningEngine.Services
+﻿namespace DecisioningEngineLib.Services
 {
-    public class CreditRulesService
+    public class CreditRulesService : ICreditRulesService
     {
         /// <summary>
         /// Get Maximum qualified amount based on credit score and applicant's salary
@@ -14,13 +14,13 @@
 
             if (score.HasValue == false)
             {
-                maxAmount = salary * 200 / 100;
+                maxAmount = salary / 100 * 30;
             }
             else
             {
                 if (score.Value < 700)
                 {
-                    maxAmount = salary;
+                    maxAmount = salary / 2;
                 }
                 else if (score.Value >= 700)
                 {

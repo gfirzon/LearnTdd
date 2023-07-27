@@ -3,15 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotFancyCreditApplication", "NotFancyCreditApplication\NotFancyCreditApplication.csproj", "{4691429C-50D7-4D9C-A0AC-E0BB9D630893}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0AFD6883-8655-40E5-A12B-816905DADCD7}"
 	ProjectSection(SolutionItems) = preProject
 		docs\rules.MD = docs\rules.MD
 		docs\tddGuideLines.MD = docs\tddGuideLines.MD
+		docs\xunit.MD = docs\xunit.MD
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecisioningEngineLib", "DecisioningEngineLibrary\DecisioningEngineLib.csproj", "{A9448173-5E97-41A3-9DFF-A59107BB0306}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91DF851F-3264-4C22-BD25-A71BD4E882C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecisioningEngineLib", "src\DecisioningEngineLibrary\DecisioningEngineLib.csproj", "{07821DFF-22F6-40C1-8BCC-6BD78828B4EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotFancyCreditApplication", "src\NotFancyCreditApplication\NotFancyCreditApplication.csproj", "{BEF87553-A1CE-4494-8B46-6B7E77666214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngine.Api", "src\DecisioningEngine.Api\DecisioningEngine.Api.csproj", "{7A915179-A779-4998-AE33-C5B386B1B6BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EF589106-584E-4F75-8F3C-F0A915CDA3D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngineLib.UnitTests", "tests\DecisioningEngineLib.UnitTests\DecisioningEngineLib.UnitTests.csproj", "{BBD26819-48D5-4D64-9492-163CC99D9049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngine.LocalIntegrationTests", "tests\DecisioningEngine.LocalIntegrationTests\DecisioningEngine.LocalIntegrationTests.csproj", "{39CE6E3A-5056-47BB-9461-97612DF465D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngine.BehaviorTests", "tests\DecisioningEngine.BehaviorTests\DecisioningEngine.BehaviorTests.csproj", "{A2573A92-50FA-4A7A-B607-F21E5056A5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,17 +32,41 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4691429C-50D7-4D9C-A0AC-E0BB9D630893}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9448173-5E97-41A3-9DFF-A59107BB0306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07821DFF-22F6-40C1-8BCC-6BD78828B4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07821DFF-22F6-40C1-8BCC-6BD78828B4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07821DFF-22F6-40C1-8BCC-6BD78828B4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07821DFF-22F6-40C1-8BCC-6BD78828B4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF87553-A1CE-4494-8B46-6B7E77666214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF87553-A1CE-4494-8B46-6B7E77666214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF87553-A1CE-4494-8B46-6B7E77666214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF87553-A1CE-4494-8B46-6B7E77666214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A915179-A779-4998-AE33-C5B386B1B6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A915179-A779-4998-AE33-C5B386B1B6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A915179-A779-4998-AE33-C5B386B1B6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A915179-A779-4998-AE33-C5B386B1B6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD26819-48D5-4D64-9492-163CC99D9049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD26819-48D5-4D64-9492-163CC99D9049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD26819-48D5-4D64-9492-163CC99D9049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD26819-48D5-4D64-9492-163CC99D9049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{07821DFF-22F6-40C1-8BCC-6BD78828B4EA} = {91DF851F-3264-4C22-BD25-A71BD4E882C4}
+		{BEF87553-A1CE-4494-8B46-6B7E77666214} = {91DF851F-3264-4C22-BD25-A71BD4E882C4}
+		{7A915179-A779-4998-AE33-C5B386B1B6BF} = {91DF851F-3264-4C22-BD25-A71BD4E882C4}
+		{BBD26819-48D5-4D64-9492-163CC99D9049} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
+		{39CE6E3A-5056-47BB-9461-97612DF465D7} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3985430-0D08-4055-A690-5BA70FC568D3}

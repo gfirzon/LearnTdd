@@ -1,10 +1,17 @@
 ﻿using DecisioningEngine.Models;
 using DecisioningEngineLib.Models;
 
-namespace DecisioningEngine.Services
+namespace DecisioningEngineLib.Services
 {
-    public class CreditService
+    public class CreditService : ICreditService
     {
+        private readonly ICreditPullingService _creditPullingService = null;
+
+        public CreditService(ICreditPullingService creditPullingService)
+        {
+            _creditPullingService = creditPullingService;
+        }
+
         /// <summary>
         /// Obtain credit score on the applicant based on SSN
         /// </summary>
@@ -12,8 +19,7 @@ namespace DecisioningEngine.Services
         /// <returns>credit score and fact of bureau availability </returns>
         public CreditScoreResult GetCreditScore(string ssn)
         {
-            CreditPullingService creditPullingService = new CreditPullingService();
-            CreditBureauInfoItem pulledCredit = creditPullingService.GetCreditData(ssn);
+            CreditBureauInfoItem pulledCredit = _creditPullingService.GetCreditData(ssn);
 
             CreditScoreResult creditScoreResult = new CreditScoreResult
             {
