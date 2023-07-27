@@ -1,5 +1,6 @@
 using DecisioningEngine.Models;
-using System;
+using DecisioningEngineLib.Services;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace DecisioningEngine.BehaviorTests.StepDefinitions
@@ -7,11 +8,15 @@ namespace DecisioningEngine.BehaviorTests.StepDefinitions
     [Binding]
     public class CreditApplicationShouldBeAbleToBeDecisionedStepDefinitions
     {
-        private readonly ScenarioContext scenarioContext = null!;
+        private readonly ScenarioContext _scenarioContext = null!;
+        private readonly IRealEstateLoanEngine _realEstateLoanEngine = null!;
 
-        public CreditApplicationShouldBeAbleToBeDecisionedStepDefinitions(ScenarioContext scenarioContext)
+        public CreditApplicationShouldBeAbleToBeDecisionedStepDefinitions(
+            ScenarioContext scenarioContext,
+            IRealEstateLoanEngine realEstateLoanEngine)
         {
-            this.scenarioContext = scenarioContext;
+            _scenarioContext = scenarioContext;
+            _realEstateLoanEngine = realEstateLoanEngine;
         }
 
         [Given(@"Credit Application is submitted")]
@@ -28,9 +33,29 @@ namespace DecisioningEngine.BehaviorTests.StepDefinitions
                 CurrentSalary = salary
             };
 
-            scenarioContext["CreditApplication"] = creditApplication;
+            _scenarioContext["CreditApplication"] = creditApplication;
+        }
 
-            throw new PendingStepException();
+        [When(@"Credit Application is decisioned")]
+        public void WhenCreditApplicationIsDecisioned()
+        {
+            bool valueExists = _scenarioContext.TryGetValue("CreditApplication", out CreditApplication creditApplication);
+            valueExists.Should().BeTrue();
+
+            LoanDecision loanDecision = _realEstateLoanEngine.GetLoanDecision(creditApplication);
+            // your call to check or not here, we can talk about it
+            loanDecision.Should().NotBeNull();
+
+            _scenarioContext["loanDecision"] = loanDecision;
+        }
+
+        [Then(@"decision is to approve")]
+        public void ThenDecisionIsToApprove()
+        {
+            bool valueExists = _scenarioContext.TryGetValue("loanDecision", out LoanDecision loanDecision);
+            valueExists.Should().BeTrue();
+
+            loanDecision.IsApproved.Should().BeTrue();
         }
     }
 }

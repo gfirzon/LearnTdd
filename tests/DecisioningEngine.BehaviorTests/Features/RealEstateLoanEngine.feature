@@ -1,9 +1,9 @@
 ﻿Feature: Credit Application should be able to be decisioned 
 
-A short summary of the feature
+Real estate loan application is submitted and decisioned with valid status
 
 @tag1
 Scenario: Credit Application can be decisioned
 	Given Credit Application is submitted 
-	#When [action]
-	#Then [outcome]
+	When Credit Application is decisioned
+	Then decision is to approve
