@@ -1,18 +1,8 @@
 ﻿// https://github.com/gfirzon/LearnTDD.git
 
 using DecisioningEngine.Models;
-using DecisioningEngineLib.Models;
 using DecisioningEngineLib.Services;
 using Microsoft.Extensions.DependencyInjection;
-
-//IAnimal animal = new Person();
-//IAnimal animal = new Bookshelf();
-//animal.Eat();
-
-//foo(new Person());
-//foo(new Bookshelf());
-
-//return;
 
 static ServiceProvider CreateServices()
 {
@@ -50,24 +40,8 @@ CreditApplication creditApplication = new CreditApplication
 
 ServiceProvider serviceProvider = CreateServices();
 
-IRealEstateLoanEngine loanEngine = serviceProvider.GetService<IRealEstateLoanEngine>();
+IRealEstateLoanEngine? loanEngine = serviceProvider.GetService<IRealEstateLoanEngine>();
 LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
-
-int n = 0;
-
-// needed to instantiate CreditService
-/*
-CreditPullingService creditPullingService = new CreditPullingService();
-
-// needed to instantiate RealEstateLoanEngine
-CreditService creditService = new CreditService(creditPullingService);
-CreditRulesService creditRulesService = new CreditRulesService();
-LoanDecisionEngine loanDecisionEngine = new LoanDecisionEngine();
-
-RealEstateLoanEngine loanEngine
-        = new RealEstateLoanEngine(creditService, creditRulesService, loanDecisionEngine);
-LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
-*/
 
 //---------------------------------------------------
 // display results
@@ -89,10 +63,3 @@ Console.ForegroundColor = decision.BureauAvailable ? ConsoleColor.Green : Consol
 Console.WriteLine($"{(decision.BureauAvailable ? "Bureau pull returned data" : "Bureau pull did not return data")}");
 Console.ForegroundColor = ConsoleColor.Gray;
 Console.WriteLine(new string('▓', 50));
-
-
-
-static void foo(IAnimal a)
-{
-    a.Eat();
-}
