@@ -1,6 +1,6 @@
 ﻿using DecisioningEngine.Models;
-using DecisioningEngineLib.Services;
-using Moq;
+using DecisioningEngineLib.Models;
+using FluentAssertions;
 
 namespace DecisioningEngineLib.UnitTests.Services;
 
@@ -9,17 +9,17 @@ public class RealEstateLoanEngineTests
     private readonly RealEstateLoanEngine realEstateLoanEngine = null!;
 
     private readonly Mock<ICreditService> mockCreditService = null!;
-    private readonly Mock<ICreditRulesService> mockCreditRulesService = null!;
+    private readonly ICreditRulesService creditRulesService = null!;
     private readonly Mock<ILoanDecisionEngine> mockLoanDecisionEngine = null!;
 
     public RealEstateLoanEngineTests()
     {
         mockCreditService = new();
-        mockCreditRulesService = new();
+        creditRulesService = new CreditRulesService();
         mockLoanDecisionEngine = new();
 
         realEstateLoanEngine = new RealEstateLoanEngine(mockCreditService.Object,
-            mockCreditRulesService.Object,
+            creditRulesService,
             mockLoanDecisionEngine.Object);
 
         SetDefaultMocks();
@@ -44,10 +44,31 @@ public class RealEstateLoanEngineTests
         LoanDecision loanDecision = realEstateLoanEngine.GetLoanDecision(creditApplication);
 
         // Asserts
+        loanDecision.IsApproved.Should().BeTrue();
     }
 
     private void SetDefaultMocks()
     {
+        mockCreditService.Setup(m => m.GetCreditScore(
+            It.IsAny<string>()
+            )).Returns(new CreditScoreResult
+            {
+                BureauAvailable = true,
+                CreditScore = 720
+            });
 
+        mockLoanDecisionEngine.Setup(m => m.GetLoanDecision(
+            It.IsAny<string>(),
+            It.IsAny<decimal>(),
+            It.IsAny<decimal>()
+            )).Returns(new LoanDecision
+            {
+                AmountRequested = 100,
+                BureauAvailable = true,
+                IsApproved = true,
+                MaxAmountQualified = 100,
+                Reason = "some reason",
+                SSN = "555-55-5555"
+            });
     }
 }

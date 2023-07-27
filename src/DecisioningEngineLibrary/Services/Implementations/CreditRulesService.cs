@@ -1,6 +1,4 @@
-﻿using DecisioningEngineLib.Services;
-
-namespace DecisioningEngineLib.Services
+﻿namespace DecisioningEngineLib.Services
 {
     public class CreditRulesService : ICreditRulesService
     {
