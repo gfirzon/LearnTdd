@@ -1,12 +1,6 @@
 ﻿using DecisioningEngine.Api.Controllers;
 using DecisioningEngine.Models;
-using DecisioningEngineLib.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecisioningEngineLib.UnitTests.Controllers;
 
@@ -15,7 +9,6 @@ public class DecisionControllerTests
     private readonly DecisionController decisionController = null!;
 
     private readonly Mock<IRealEstateLoanEngine> mockRealEstateLoanEngine = null!;
-
 
     public DecisionControllerTests()
     {

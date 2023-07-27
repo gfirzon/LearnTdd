@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0AFD6883-8
 	ProjectSection(SolutionItems) = preProject
 		docs\rules.MD = docs\rules.MD
 		docs\tddGuideLines.MD = docs\tddGuideLines.MD
+		docs\xunit.MD = docs\xunit.MD
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91DF851F-3264-4C22-BD25-A71BD4E882C4}"
