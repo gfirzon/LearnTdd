@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngineLib.UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngine.LocalIntegrationTests", "tests\DecisioningEngine.LocalIntegrationTests\DecisioningEngine.LocalIntegrationTests.csproj", "{39CE6E3A-5056-47BB-9461-97612DF465D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisioningEngine.BehaviorTests", "tests\DecisioningEngine.BehaviorTests\DecisioningEngine.BehaviorTests.csproj", "{A2573A92-50FA-4A7A-B607-F21E5056A5F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39CE6E3A-5056-47BB-9461-97612DF465D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{7A915179-A779-4998-AE33-C5B386B1B6BF} = {91DF851F-3264-4C22-BD25-A71BD4E882C4}
 		{BBD26819-48D5-4D64-9492-163CC99D9049} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
 		{39CE6E3A-5056-47BB-9461-97612DF465D7} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
+		{A2573A92-50FA-4A7A-B607-F21E5056A5F9} = {EF589106-584E-4F75-8F3C-F0A915CDA3D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3985430-0D08-4055-A690-5BA70FC568D3}
