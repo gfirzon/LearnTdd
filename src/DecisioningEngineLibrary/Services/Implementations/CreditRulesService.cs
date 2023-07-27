@@ -14,13 +14,13 @@
 
             if (score.HasValue == false)
             {
-                maxAmount = salary * 200 / 100;
+                maxAmount = salary / 5;
             }
             else
             {
                 if (score.Value < 700)
                 {
-                    maxAmount = salary;
+                    maxAmount = salary / 2;
                 }
                 else if (score.Value >= 700)
                 {
