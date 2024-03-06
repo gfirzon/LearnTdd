@@ -20,9 +20,9 @@ public class DecisionController : ControllerBase
     {
         IActionResult actionResult = null!;
 
-        LoanDecision loanDecision = _realEstateLoanEngine.GetLoanDecision(creditApplication);
+        var result = _realEstateLoanEngine.GetLoanDecision(creditApplication);
 
-        actionResult = Ok(loanDecision);
+        actionResult = Ok(result);
 
         return actionResult;
     }

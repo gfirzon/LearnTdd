@@ -36,9 +36,10 @@ public class RealEstateLoanEngineTests : IClassFixture<StartupContainer>
         };
 
         // Act
-        LoanDecision loanDecision = realEstateLoanEngine.GetLoanDecision(creditApplication);
+        var serviceResult = realEstateLoanEngine.GetLoanDecision(creditApplication);
 
         // Asserts
+        LoanDecision loanDecision = serviceResult.Data!;
         loanDecision.IsApproved.Should().BeTrue();
     }
 }

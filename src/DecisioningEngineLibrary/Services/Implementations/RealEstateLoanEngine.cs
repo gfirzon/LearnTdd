@@ -23,8 +23,10 @@ public class RealEstateLoanEngine : IRealEstateLoanEngine
     /// </summary>
     /// <param name="creditApplication"></param>
     /// <returns></returns>
-    public LoanDecision GetLoanDecision(CreditApplication creditApplication)
+    public ServiceResult<LoanDecision> GetLoanDecision(CreditApplication creditApplication)
     {
+        ServiceResult<LoanDecision> serviceResult = new ServiceResult<LoanDecision>();
+
         CreditScoreResult creditScoreResult = _creditService.GetCreditScore(creditApplication.SSN);
 
         decimal maxQualifiedAmount = _creditRulesService.GetMaxQualifiedAmount(creditScoreResult.CreditScore, creditApplication.CurrentSalary);
@@ -33,6 +35,7 @@ public class RealEstateLoanEngine : IRealEstateLoanEngine
 
         loanDecision.BureauAvailable = creditScoreResult.BureauAvailable;
 
-        return loanDecision;
+        serviceResult.Data = loanDecision;
+        return serviceResult;
     }
 }

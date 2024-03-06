@@ -4,5 +4,5 @@ namespace DecisioningEngineLib.Services;
 
 public interface IRealEstateLoanEngine
 {
-    LoanDecision GetLoanDecision(CreditApplication creditApplication);
+    ServiceResult<LoanDecision> GetLoanDecision(CreditApplication creditApplication);
 }

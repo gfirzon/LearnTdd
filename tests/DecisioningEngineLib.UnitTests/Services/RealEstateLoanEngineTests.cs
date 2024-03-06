@@ -40,7 +40,8 @@ public class RealEstateLoanEngineTests
         };
 
         // Act
-        LoanDecision loanDecision = realEstateLoanEngine.GetLoanDecision(creditApplication);
+        var serviceResult = realEstateLoanEngine.GetLoanDecision(creditApplication);
+        LoanDecision loanDecision = serviceResult.Data!;
 
         // Asserts
         loanDecision.IsApproved.Should().BeTrue();

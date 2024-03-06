@@ -34,14 +34,17 @@ public class DecisionControllerTests
 
         mockRealEstateLoanEngine.Setup(m => m.GetLoanDecision(
             It.IsAny<CreditApplication>()
-            )).Returns(new LoanDecision
+            )).Returns(new ServiceResult<LoanDecision>
             {
-                IsApproved = true,
-                AmountRequested = 4000,
-                BureauAvailable = true,
-                MaxAmountQualified = 1000,
-                SSN = ssn,
-                Reason = "some reason"
+                Data = new LoanDecision
+                {
+                    IsApproved = true,
+                    AmountRequested = 4000,
+                    BureauAvailable = true,
+                    MaxAmountQualified = 1000,
+                    SSN = ssn,
+                    Reason = "some reason"
+                }
             });
 
         // Act
@@ -49,7 +52,7 @@ public class DecisionControllerTests
 
         // Asserts
         var actualResult = actionResult.As<OkObjectResult>();
-        LoanDecision loanDecision = actualResult.Value.As<LoanDecision>();
+        LoanDecision loanDecision = actualResult.Value.As<ServiceResult<LoanDecision>>().Data!;
 
         loanDecision.IsApproved.Should().BeTrue();
     }

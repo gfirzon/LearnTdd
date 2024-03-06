@@ -39,11 +39,16 @@ namespace DecisioningEngine.BehaviorTests.StepDefinitions
         [When(@"Credit Application is decisioned")]
         public void WhenCreditApplicationIsDecisioned()
         {
+            // Arrange
             bool valueExists = _scenarioContext.TryGetValue("CreditApplication", out CreditApplication creditApplication);
             valueExists.Should().BeTrue();
 
-            LoanDecision loanDecision = _realEstateLoanEngine.GetLoanDecision(creditApplication);
+            // Act
+            ServiceResult<LoanDecision> serviceResult = _realEstateLoanEngine.GetLoanDecision(creditApplication);
+
+            // Arrane
             // your call to check or not here, we can talk about it
+            LoanDecision loanDecision = serviceResult.Data!;
             loanDecision.Should().NotBeNull();
 
             _scenarioContext["loanDecision"] = loanDecision;

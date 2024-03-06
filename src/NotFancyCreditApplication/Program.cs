@@ -41,8 +41,9 @@ CreditApplication creditApplication = new CreditApplication
 ServiceProvider serviceProvider = CreateServices();
 
 IRealEstateLoanEngine? loanEngine = serviceProvider.GetService<IRealEstateLoanEngine>();
-LoanDecision decision = loanEngine.GetLoanDecision(creditApplication);
 
+var serviceResult = loanEngine.GetLoanDecision(creditApplication);
+LoanDecision decision = serviceResult.Data!;
 //---------------------------------------------------
 // display results
 //---------------------------------------------------
