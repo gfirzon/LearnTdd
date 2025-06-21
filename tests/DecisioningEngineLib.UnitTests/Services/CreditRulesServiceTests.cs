@@ -21,7 +21,7 @@ public class CreditRulesServiceTests
         decimal actualQualifiedAmount = creditRulesService.GetMaxQualifiedAmount(score, salary);
 
         // Asserts
-        actualQualifiedAmount.Should().Be(expectedQualifiedAmount);
+        Assert.Equal(expectedQualifiedAmount, actualQualifiedAmount);
     }
 
     [Theory]
@@ -34,7 +34,7 @@ public class CreditRulesServiceTests
         decimal actualQualifiedAmount = creditRulesService.GetMaxQualifiedAmount(score, salary);
 
         // Asserts
-        actualQualifiedAmount.Should().Be(expectedQualifiedAmount);
+        Assert.Equal(expectedQualifiedAmount, actualQualifiedAmount);
     }
 
     public static IEnumerable<object[]> GetScenarioData()

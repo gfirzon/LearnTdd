@@ -17,7 +17,7 @@ public class RealEstateLoanEngineTests : IClassFixture<StartupContainer>
     public void IRealEstateLoanEngine_Should_Be_Provided_By_DI_ServiceProvider()
     {
         // Asserts
-        realEstateLoanEngine.Should().NotBeNull();
+        Assert.NotNull(realEstateLoanEngine);
     }
 
     [Fact]
@@ -40,6 +40,6 @@ public class RealEstateLoanEngineTests : IClassFixture<StartupContainer>
 
         // Asserts
         LoanDecision loanDecision = serviceResult.Data!;
-        loanDecision.IsApproved.Should().BeTrue();
+        Assert.True(loanDecision.IsApproved);
     }
 }
