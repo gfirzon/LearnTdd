@@ -44,7 +44,7 @@ public class RealEstateLoanEngineTests
         LoanDecision loanDecision = serviceResult.Data!;
 
         // Asserts
-        loanDecision.IsApproved.Should().BeTrue();
+        Assert.True(loanDecision.IsApproved);
     }
 
     private void SetDefaultMocks()

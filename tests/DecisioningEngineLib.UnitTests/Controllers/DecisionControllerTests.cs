@@ -51,9 +51,11 @@ public class DecisionControllerTests
         IActionResult actionResult = decisionController.Post(creditApplication);
 
         // Asserts
-        var actualResult = actionResult.As<OkObjectResult>();
-        LoanDecision loanDecision = actualResult.Value.As<ServiceResult<LoanDecision>>().Data!;
+        //LoanDecision loanDecision = actualResult.Value.As<ServiceResult<LoanDecision>>().Data!;
 
-        loanDecision.IsApproved.Should().BeTrue();
+        var actualResult = Assert.IsType<OkObjectResult>(actionResult);
+        var loanDecision = Assert.IsType<ServiceResult<LoanDecision>>(actualResult.Value!);
+
+        Assert.True(loanDecision.Data!.IsApproved);
     }
 }
